@@ -1,0 +1,29 @@
+pluginManagement {
+    repositories {
+        // 插件仓库配置（用于 Gradle 插件，如 Android Gradle Plugin）
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+dependencyResolutionManagement {
+    // ✅ 修改这里：允许项目 build.gradle 中声明仓库，避免报错
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+
+        // ⚠️ 如果这个是公司内部仓库，但你当前环境连不上，可以先注释掉
+        // maven {
+        //     url 'http://172.16.46.52:9998/repository/maven-public/'
+        //     allowInsecureProtocol = true
+        // }
+    }
+}
+
+rootProject.name = "MercuryAndroidSDK"
+include ':app'
+include ':MercurySDK'

@@ -1,0 +1,200 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.ffalcon.mercury.android.sdk"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="31"
+8-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+11-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:6:5-79
+11-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:6:22-76
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:7:5-67
+12-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:7:22-64
+13    <uses-permission android:name="android.permission.CAMERA" />
+13-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:9:5-65
+13-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:9:22-62
+14    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+14-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:10:5-71
+14-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:10:22-68
+15
+16    <application
+16-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:12:5-82:19
+17        android:name="com.ffalcon.mercury.android.sdk.demo.MercuryDemoApplication"
+17-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:13:9-47
+18        android:allowBackup="true"
+18-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:14:9-35
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.8.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\a9b9ee94eedd8d89024ef7df063f0204\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+20        android:dataExtractionRules="@xml/data_extraction_rules"
+20-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:15:9-65
+21        android:debuggable="true"
+22        android:extractNativeLibs="false"
+23        android:fullBackupContent="@xml/backup_rules"
+23-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:16:9-54
+24        android:icon="@mipmap/ic_launcher"
+24-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:17:9-43
+25        android:label="@string/app_name"
+25-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:18:9-41
+26        android:roundIcon="@mipmap/ic_launcher_round"
+26-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:19:9-54
+27        android:supportsRtl="true"
+27-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:20:9-35
+28        android:testOnly="true"
+29        android:theme="@style/Theme.MercuryAndroidSDK" >
+29-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:21:9-55
+30        <meta-data
+30-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:24:9-26:36
+31            android:name="com.rayneo.mercury.app"
+31-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:25:13-50
+32            android:value="true" />
+32-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:26:13-33
+33
+34        <activity
+34-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:28:9-39:20
+35            android:name="com.ffalcon.mercury.android.sdk.demo.DemoHomeActivity"
+35-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:29:13-45
+36            android:exported="true"
+36-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:30:13-36
+37            android:screenOrientation="landscape" >
+37-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:31:13-50
+38            <intent-filter>
+38-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:32:13-38:29
+39                <action android:name="android.intent.action.MAIN" />
+39-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:33:17-69
+39-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:33:25-66
+40
+41                <category android:name="android.intent.category.LAUNCHER" />
+41-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:35:17-77
+41-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:35:27-74
+42                <category android:name="android.intent.category.HOME" />
+42-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:36:17-73
+42-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:36:27-70
+43                <category android:name="android.intent.category.DEFAULT" />
+43-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:37:17-76
+43-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:37:27-73
+44            </intent-filter>
+45        </activity>
+46        <activity
+46-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:41:9-43:53
+47            android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.DialogActivity"
+47-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:42:13-55
+48            android:screenOrientation="landscape" />
+48-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:43:13-50
+49        <activity
+49-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:44:9-46:53
+50            android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.recycle.FixedFocusPosRVActivity"
+50-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:45:13-72
+51            android:screenOrientation="landscape" />
+51-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:46:13-50
+52        <activity
+52-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:48:9-50:53
+53            android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.recycle.MovedFocusPosRVActivity"
+53-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:49:13-72
+54            android:screenOrientation="landscape" />
+54-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:50:13-50
+55        <activity
+55-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:52:9-54:53
+56            android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.FragmentDemoActivity"
+56-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:53:13-61
+57            android:screenOrientation="landscape" />
+57-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:54:13-50
+58        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.fusion.FusionVisionHomeActivity" />
+58-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:56:9-81
+58-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:56:19-78
+59        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.fusion.FusionVisionActivity" />
+59-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:58:9-77
+59-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:58:19-74
+60        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.fusion.MirrorContainerViewActivity" />
+60-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:60:9-84
+60-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:60:19-81
+61        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.recycle.RecycleViewHomeActivity" />
+61-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:62:9-81
+61-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:62:19-78
+62        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.api.APIActivity" />
+62-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:64:9-65
+62-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:64:19-62
+63        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.camera.CameraActivity" />
+63-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:66:9-71
+63-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:66:19-68
+64        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.tp.TPEventActivity" />
+64-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:68:9-68
+64-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:68:19-65
+65        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.player.VideoPlayActivity" />
+65-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:70:9-74
+65-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:70:19-71
+66        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.fusion.PAGActivity" />
+66-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:72:9-68
+66-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:72:19-65
+67        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.api.APIHomeActivity" />
+67-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:74:9-69
+67-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:74:19-66
+68        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.api.IMUActivity" />
+68-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:76:9-65
+68-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:76:19-62
+69        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.camera.CameraHomeActivity" />
+69-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:78:9-75
+69-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:78:19-72
+70        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.test.TestActivity" />
+70-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:80:9-67
+70-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:80:19-64
+71
+72        <provider
+72-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+73            android:name="androidx.startup.InitializationProvider"
+73-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+74            android:authorities="com.ffalcon.mercury.android.sdk.androidx-startup"
+74-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+75            android:exported="false" >
+75-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+76            <meta-data
+76-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+77                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+77-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+78                android:value="androidx.startup" />
+78-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+79            <meta-data
+79-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\qhjhhh\.gradle\caches\transforms-3\f2a22985807e1f187a5a6aa8656c7887\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+80                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+80-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\qhjhhh\.gradle\caches\transforms-3\f2a22985807e1f187a5a6aa8656c7887\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+81                android:value="androidx.startup" />
+81-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\qhjhhh\.gradle\caches\transforms-3\f2a22985807e1f187a5a6aa8656c7887\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+82        </provider>
+83
+84        <service
+84-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:29:9-35:19
+85            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+85-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:30:13-103
+86            android:exported="false" >
+86-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:31:13-37
+87            <meta-data
+87-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:32:13-34:39
+88                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+88-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:33:17-94
+89                android:value="cct" />
+89-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:34:17-36
+90        </service>
+91        <service
+91-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:26:9-30:19
+92            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+92-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:27:13-117
+93            android:exported="false"
+93-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:28:13-37
+94            android:permission="android.permission.BIND_JOB_SERVICE" >
+94-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:29:13-69
+95        </service>
+96
+97        <receiver
+97-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:32:9-34:40
+98            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+98-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:33:13-132
+99            android:exported="false" />
+99-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:34:13-37
+100    </application>
+101
+102</manifest>

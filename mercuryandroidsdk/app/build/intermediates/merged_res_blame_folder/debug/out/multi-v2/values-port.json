@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.ffalcon.mercury.android.sdk.demo.app-mergeDebugResources-35:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\qhjhhh\\.gradle\\caches\\transforms-3\\2179b20257800f59566825f2b2752c79\\transformed\\appcompat-1.5.0\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}
