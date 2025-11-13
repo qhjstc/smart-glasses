@@ -27,7 +27,9 @@ import java.net.Socket
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import kotlin.math.sqrt
-
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import android.widget.Toast
 
 /**
  * ✅ 单端口双向通信 + Camera/IMU + WifiSender结构
@@ -45,7 +47,7 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
     private lateinit var wifiSender: WifiSender
     private lateinit var audioSink: WifiAudioSender
     private val RECORD_AUDIO_REQUEST_CODE = 200
-    private val serverIP = "192.168.8.40"       // ⚠️ 改成你自己的服务器 IP
+    private val serverIP = "192.168.43.225"       // ⚠️ 改成你自己的服务器 IP
     private val unifiedPort = 50005
     private var unifiedSocket: Socket? = null
     private var unifiedIn: InputStream? = null
@@ -70,14 +72,67 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
     private lateinit var backThread: HandlerThread
     private lateinit var backHandler: Handler
     private val previewSurfaces = mutableListOf<Surface>()
+    private val PERMISSION_REQUEST_CODE = 1001
 
     //========================= 生命周期 =========================
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ensureAllPermissions()
+
         initIMU()
         initAudio()
         initUIEvents()
         cameraManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
+    }
+
+    private fun ensureAllPermissions() {
+        val permissions = arrayOf(
+            Manifest.permission.RECORD_AUDIO,
+            Manifest.permission.CAMERA
+        )
+
+        // 找出未授权的权限
+        val notGranted = permissions.filter {
+            ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED
+        }
+
+        if (notGranted.isNotEmpty()) {
+            // 系统自动弹出权限请求框
+            ActivityCompat.requestPermissions(
+                this,
+                notGranted.toTypedArray(),
+                PERMISSION_REQUEST_CODE
+            )
+        } else {
+            // 所有权限已授权
+            Toast.makeText(this, "✅ 所有权限已授权", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            val denied = permissions.zip(grantResults.toTypedArray())
+                .filter { it.second != PackageManager.PERMISSION_GRANTED }
+
+            if (denied.isEmpty()) {
+                Toast.makeText(this, "✅ 权限全部授予", Toast.LENGTH_SHORT).show()
+                // 可以安全地开始录音或打开摄像头
+            } else {
+                Toast.makeText(
+                    this,
+                    "❌ 被拒绝权限: ${
+                        denied.joinToString { it.first.split('.').last() }
+                    }",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
     }
 
     //========================= 模式切换 =========================
@@ -89,7 +144,7 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
         wifiSender.sendJson("""{"type":"MODE","mode":"${newMode.name}"}""")
 
         when (newMode) {
-             Mode.TRACKING -> {
+            Mode.TRACKING -> {
                 stopRecordingIfNeeded()
                 startTrackingMode()
             }
