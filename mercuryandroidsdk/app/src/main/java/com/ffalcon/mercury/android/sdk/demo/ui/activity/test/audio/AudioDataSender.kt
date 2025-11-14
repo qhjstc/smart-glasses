@@ -1,4 +1,4 @@
-package com.ffalcon.mercury.android.sdk.demo.ui.activity.test
+package com.ffalcon.mercury.android.sdk.demo.ui.activity.test.audio
 
 interface AudioDataSender {
     fun onAudioData(data: ByteArray, length: Int)

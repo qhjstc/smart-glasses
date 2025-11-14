@@ -27,9 +27,10 @@ import java.net.Socket
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import kotlin.math.sqrt
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import android.widget.Toast
+import com.ffalcon.mercury.android.sdk.demo.ui.activity.test.audio.AudioRecorderModule
+import com.ffalcon.mercury.android.sdk.demo.ui.activity.test.audio.WifiAudioSender
 
 /**
  * ✅ 单端口双向通信 + Camera/IMU + WifiSender结构
@@ -37,12 +38,12 @@ import android.widget.Toast
  */
 class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListener {
 
-    //========================= IMU =========================
+    //------------------------------ IMU ------------------------------//
     private lateinit var sensorManager: SensorManager
     private var gameRotationVectorSensor: Sensor? = null
     private var lastIMUUpdate = 0L
 
-    //========================= Audio & Network =========================
+    //------------------------------ Audio & Network ------------------------------//
     private lateinit var recorder: AudioRecorderModule
     private lateinit var wifiSender: WifiSender
     private lateinit var audioSink: WifiAudioSender
@@ -52,7 +53,7 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
     private var unifiedSocket: Socket? = null
     private var unifiedIn: InputStream? = null
 
-    //========================= 模式定义 =========================
+    //------------------------------ 模式定义 ------------------------------//
     enum class Mode(val displayName: String) {
         DEFAULT("DEFAULT"),
         TALKING("TALK"),
@@ -65,16 +66,19 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
 
     private var currentMode = Mode.DEFAULT
 
-    //========================= Camera2 =========================
+    //------------------------------ Camera2 ------------------------------//
     private lateinit var cameraManager: CameraManager
     private var cameraDevice: CameraDevice? = null
     private var captureSession: CameraCaptureSession? = null
     private lateinit var backThread: HandlerThread
     private lateinit var backHandler: Handler
     private val previewSurfaces = mutableListOf<Surface>()
+
+    //------------------------------ Others ------------------------------//
     private val PERMISSION_REQUEST_CODE = 1001
 
-    //========================= 生命周期 =========================
+
+    //========================= 生命周期 =========================//
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ensureAllPermissions()
@@ -135,7 +139,7 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
         }
     }
 
-    //========================= 模式切换 =========================
+    //========================= 模式切换 =========================//
     private fun switchMode(newMode: Mode) {
         if (currentMode == newMode) return
         currentMode = newMode
@@ -159,12 +163,12 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
         }
     }
 
-    //========================= IMU =========================
+    //========================= IMU =========================//
     private fun initIMU() {
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
         gameRotationVectorSensor = sensorManager.getDefaultSensor(Sensor.TYPE_GAME_ROTATION_VECTOR)
         mBindingPair.updateView {
-            if (gameRotationVectorSensor == null) tvRotation.text = "IMU unavailable"
+            if (gameRotationVectorSensor == null) tvRot.text = "IMU unavailable"
         }
     }
 
@@ -183,7 +187,7 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
         }
         val euler = quaternionToEuler(qx, qy, qz, qw)
         mBindingPair.updateView {
-            tvRotation.text = "Yaw: %.1f\nPitch: %.1f\nRoll: %.1f"
+            tvRot.text = "Yaw: %.1f\nPitch: %.1f\nRoll: %.1f"
                 .format(euler[2], euler[0], euler[1])
         }
     }
@@ -202,11 +206,11 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
         return e
     }
 
-    //========================= Camera =========================
+    //========================= Camera =========================//
     private fun startTrackingMode() {
         mBindingPair.updateView {
-            cameraContainer.visibility = View.VISIBLE
-            cameraOverlay.visibility = View.GONE
+            layoutCameraContainer.visibility = View.VISIBLE
+            viewCameraOverlay.visibility = View.GONE
         }
 
         backThread = HandlerThread("CameraThread", Process.THREAD_PRIORITY_MORE_FAVORABLE).apply { start() }
@@ -214,7 +218,7 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
         previewSurfaces.clear()
 
         mBindingPair.updateView {
-            val textureView = textureViewCamera
+            val textureView = textureCameraPreview
             textureView.surfaceTextureListener = object : TextureView.SurfaceTextureListener {
                 var surfaceRef: Surface? = null
                 override fun onSurfaceTextureAvailable(st: SurfaceTexture, w: Int, h: Int) {
@@ -253,7 +257,7 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
         } catch (_: Exception) {}
         captureSession = null
         cameraDevice = null
-        mBindingPair.updateView { cameraContainer.visibility = View.GONE }
+        mBindingPair.updateView { layoutCameraContainer.visibility = View.GONE }
     }
 
     @SuppressLint("MissingPermission")
@@ -292,7 +296,7 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
         }, backHandler)
     }
 
-    //========================= Audio & TCP =========================
+    //========================= Audio & TCP =========================//
     private fun initAudio() {
         recorder = AudioRecorderModule()
 
@@ -324,7 +328,7 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
         )
         mBindingPair.updateView {
             tvNetworkStatus.text = text
-            (statusIndicator.background as? GradientDrawable)?.setColor(color)
+            (viewStatusIndicator.background as? GradientDrawable)?.setColor(color)
         }
     }
 
@@ -336,7 +340,8 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
             channelConfig = AudioFormat.CHANNEL_IN_MONO,
             audioFormat = AudioFormat.ENCODING_PCM_16BIT,
             bufferSizeInBytes = 2048,
-            sink = audioSink
+            sink = audioSink,
+            voiceDetectionMode = AudioRecorderModule.VoiceDetectionMode.ENABLED
         )
     }
 
@@ -352,7 +357,7 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
         } catch (_: Exception) { false }
     }
 
-    //========================= 接收服务器结果 =========================
+    //========================= 接收服务器结果 =========================//
     private fun startUnifiedReceiver(input: InputStream) {
         Thread {
             try {
@@ -430,7 +435,7 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
         }.start()
     }
 
-    //========================= UI 控件事件 =========================
+    //========================= UI 控件事件 =========================//
     private fun initUIEvents() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
@@ -446,7 +451,7 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
         }
     }
 
-    //========================= 生命周期 =========================
+    //========================= 生命周期 =========================//
     override fun onResume() {
         super.onResume()
         gameRotationVectorSensor?.let {

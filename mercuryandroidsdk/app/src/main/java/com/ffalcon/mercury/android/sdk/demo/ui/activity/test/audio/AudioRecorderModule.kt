@@ -1,4 +1,4 @@
-package com.ffalcon.mercury.android.sdk.demo.ui.activity.test
+package com.ffalcon.mercury.android.sdk.demo.ui.activity.test.audio
 
 import android.content.Context
 import android.media.AudioFormat
@@ -11,7 +11,8 @@ import kotlin.math.log10
 import kotlin.math.sqrt
 
 /**
- * AudioRecorderModule：支持静音检测 + 实时环境分贝显示 + 自动ASR_END
+ * AudioRecorderModule：
+ * 支持语音活动检测（可开关）
  */
 class AudioRecorderModule {
 
@@ -19,32 +20,40 @@ class AudioRecorderModule {
         private const val TAG = "AudioRecorderModule"
     }
 
+    enum class VoiceDetectionMode {
+        ENABLED,   // 开启语音活动检测（发 ASR_END）
+        DISABLED   // 仅采集音频，不检测语音状态
+    }
+
     private var audioManager: AudioManager? = null
     private var audioRecord: AudioRecord? = null
     private var bufferSizeInBytes: Int = 512
     @Volatile private var isRecording = false
 
+    private var enableVoiceDetection = true
+
     // --- 语音活动检测参数 ---
-    private var silenceThresholdDb = 45.0       // 实际环境：一般 -35~-25 会比较合适
+    private var silenceThresholdDb = 45.0
     private var silenceTimeoutMs = 900L
     private var speaking = false
     private var lastSpeechTime = 0L
 
     private var lastDbLogTime = 0L
     private val dbWindow = ArrayDeque<Double>()
-    private val smoothWindow = 5  // 最近5帧取平均
+    private val smoothWindow = 5
 
-    var currentMode: String = "TALKING"
-
+    //========================= Basic Func =========================
     fun start(
         context: Context,
         sampleRateInHz: Int = 16000,
         channelConfig: Int = AudioFormat.CHANNEL_IN_MONO,
         audioFormat: Int = AudioFormat.ENCODING_PCM_16BIT,
         bufferSizeInBytes: Int = 2048,
-        sink: AudioDataSender
+        sink: AudioDataSender,
+        voiceDetectionMode: VoiceDetectionMode = VoiceDetectionMode.ENABLED // 🆕 控制开关
     ) {
         this.bufferSizeInBytes = bufferSizeInBytes
+        this.enableVoiceDetection = (voiceDetectionMode == VoiceDetectionMode.ENABLED)
 
         audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
         audioManager?.setParameters("audio_source_record=record_origin3")
@@ -68,7 +77,7 @@ class AudioRecorderModule {
         speaking = false
         lastSpeechTime = System.currentTimeMillis()
 
-        Log.i(TAG, "🎙 开始录音 (mode=$currentMode) buffer=$bufferSizeInBytes")
+        Log.i(TAG, "🎙 开始录音 buffer=$bufferSizeInBytes 检测开关=$enableVoiceDetection")
 
         thread(start = true) {
             val audioBuffer = ByteArray(bufferSizeInBytes)
@@ -77,7 +86,7 @@ class AudioRecorderModule {
                     val bytesRead = audioRecord?.read(audioBuffer, 0, bufferSizeInBytes) ?: 0
                     if (bytesRead > 0) {
                         sink.onAudioData(audioBuffer, bytesRead)
-                        if (currentMode == "TALKING") {
+                        if (enableVoiceDetection) {
                             processVoiceLevel(audioBuffer, bytesRead, sink)
                         }
                     }
@@ -87,47 +96,6 @@ class AudioRecorderModule {
                 sink.onError(e)
             } finally {
                 sink.onClose()
-            }
-        }
-    }
-
-    /**
-     * 计算音量并打印实时分贝
-     */
-    private fun processVoiceLevel(data: ByteArray, length: Int, sink: AudioDataSender) {
-        var sum = 0.0
-        for (i in 0 until length step 2) {
-            val sample = (data[i + 1].toInt() shl 8) or (data[i].toInt() and 0xFF)
-            sum += (sample * sample).toDouble()
-        }
-
-        val rms = sqrt(sum / (length / 2))
-        val db = 20 * log10(rms.coerceAtLeast(1.0))  // 相对分贝（非绝对声压值）
-
-        // --- 平滑 dB ---
-        if (dbWindow.size >= smoothWindow) dbWindow.removeFirst()
-        dbWindow.addLast(db)
-        val avgDb = dbWindow.average()
-
-        val now = System.currentTimeMillis()
-
-        // 定期打印环境音分贝
-        if (now - lastDbLogTime > 500) {
-            lastDbLogTime = now
-//            Log.d(TAG, "📊 实时环境音量约：${"%.1f".format(avgDb)} dB (阈值=$silenceThresholdDb)")
-        }
-
-        if (avgDb > silenceThresholdDb) {
-            if (!speaking) {
-                Log.d(TAG, "🗣 检测到开始说话 (db=${"%.1f".format(avgDb)})")
-                speaking = true
-            }
-            lastSpeechTime = now
-        } else {
-            if (speaking && now - lastSpeechTime > silenceTimeoutMs) {
-                speaking = false
-                Log.i(TAG, "🤫 检测到语音结束，发送 ASR_END (db=${"%.1f".format(avgDb)})")
-                sink.sendAsrEnd()
             }
         }
     }
@@ -146,6 +114,37 @@ class AudioRecorderModule {
             Log.i(TAG, "🛑 停止录音")
         } catch (e: Exception) {
             Log.e(TAG, "停止录音异常: ${e.message}")
+        }
+    }
+
+    //========================= Voice Detection =========================
+    private fun processVoiceLevel(data: ByteArray, length: Int, sink: AudioDataSender) {
+        var sum = 0.0
+        for (i in 0 until length step 2) {
+            val sample = (data[i + 1].toInt() shl 8) or (data[i].toInt() and 0xFF)
+            sum += (sample * sample).toDouble()
+        }
+
+        val rms = sqrt(sum / (length / 2))
+        val db = 20 * log10(rms.coerceAtLeast(1.0))
+
+        if (dbWindow.size >= smoothWindow) dbWindow.removeFirst()
+        dbWindow.addLast(db)
+        val avgDb = dbWindow.average()
+        val now = System.currentTimeMillis()
+
+        if (avgDb > silenceThresholdDb) {
+            if (!speaking) {
+                Log.d(TAG, "🗣 检测到开始说话 (db=${"%.1f".format(avgDb)})")
+                speaking = true
+            }
+            lastSpeechTime = now
+        } else {
+            if (speaking && now - lastSpeechTime > silenceTimeoutMs) {
+                speaking = false
+                Log.i(TAG, "🤫 检测到语音结束, 发送 ASR_END (db=${"%.1f".format(avgDb)})")
+                sink.sendAsrEnd()
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
-package com.ffalcon.mercury.android.sdk.demo.ui.activity.test
+package com.ffalcon.mercury.android.sdk.demo.ui.activity.test.audio
 
 import android.util.Log
-import java.io.OutputStream
+import com.ffalcon.mercury.android.sdk.demo.ui.activity.test.WifiSender
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import org.json.JSONObject
