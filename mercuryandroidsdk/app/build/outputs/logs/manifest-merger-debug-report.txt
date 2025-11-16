@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-84:12
-INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-84:12
-INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-84:12
-INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-84:12
+ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-86:12
 MERGED from [MercuryAndroidSDK-v0.2.2-20250717110238_48b655b3.aar] C:\Users\qhjhhh\.gradle\caches\transforms-3\c10bb8e09efd51cca6b1ca7d789cb44d\transformed\MercuryAndroidSDK-v0.2.2-20250717110238_48b655b3\AndroidManifest.xml:2:1-9:12
 MERGED from [RayNeoIPCSDK-For-Android-V0.1.0-20231128201840_9b41f025.aar] C:\Users\qhjhhh\.gradle\caches\transforms-3\fb4e0856e2484b036088fc752925a2e7\transformed\RayNeoIPCSDK-For-Android-V0.1.0-20231128201840_9b41f025\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.databinding:viewbinding:7.2.1] C:\Users\qhjhhh\.gradle\caches\transforms-3\77b2faa50d6e70bab70d374caf3e4064\transformed\viewbinding-7.2.1\AndroidManifest.xml:17:1-24:12
@@ -60,22 +60,22 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\qhjhhh\.gradle\caches\transfor
 MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\8966592efd87125f089e69b9bdb87267\transformed\firebase-encoders-json-18.0.0\AndroidManifest.xml:15:1-23:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\aa6690b1f3d3834fb31f46f2abc25fc8\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f3f619cd671b95e0973fda281bb658d5\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-84:12
-INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-84:12
-INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-84:12
+INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-86:12
 	package
 		ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:4:5-51
 		INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml
 		INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml
-		ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-84:12
+		ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-86:12
 		INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml
-		ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-84:12
+		ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:1-86:12
 		INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:2:11-69
@@ -102,7 +102,7 @@ ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:1
 	android:name
 		ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:10:22-68
 application
-ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:12:5-82:19
+ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:12:5-84:19
 MERGED from [com.google.android.material:material:1.8.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\b50478d5aca828154ee0c9ab0e318094\transformed\material-1.8.0\AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.8.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\b50478d5aca828154ee0c9ab0e318094\transformed\material-1.8.0\AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\qhjhhh\.gradle\caches\transforms-3\7b04f5cc7d34af49c743c0baf599cc57\transformed\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
@@ -253,6 +253,10 @@ activity#com.ffalcon.mercury.android.sdk.demo.ui.activity.test.TestActivity
 ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:80:9-67
 	android:name
 		ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:80:19-64
+activity#com.ffalcon.mercury.android.sdk.demo.ui.activity.test.RecordActivity
+ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:82:9-69
+	android:name
+		ADDED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:82:19-66
 uses-sdk
 INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml

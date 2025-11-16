@@ -31,41 +31,41 @@ public final class ActivityTestBinding implements ViewBinding {
   public final MaterialButton btnMode;
 
   @NonNull
-  public final FrameLayout cameraContainer;
-
-  @NonNull
-  public final View cameraOverlay;
+  public final FrameLayout layoutCameraContainer;
 
   @NonNull
   public final LinearLayout layoutNetworkStatus;
 
   @NonNull
-  public final View statusIndicator;
-
-  @NonNull
-  public final TextureView textureViewCamera;
+  public final TextureView textureCameraPreview;
 
   @NonNull
   public final TextView tvNetworkStatus;
 
   @NonNull
-  public final TextView tvRotation;
+  public final TextView tvRot;
+
+  @NonNull
+  public final View viewCameraOverlay;
+
+  @NonNull
+  public final View viewStatusIndicator;
 
   private ActivityTestBinding(@NonNull ConstraintLayout rootView, @NonNull EditText audioText,
-      @NonNull MaterialButton btnMode, @NonNull FrameLayout cameraContainer,
-      @NonNull View cameraOverlay, @NonNull LinearLayout layoutNetworkStatus,
-      @NonNull View statusIndicator, @NonNull TextureView textureViewCamera,
-      @NonNull TextView tvNetworkStatus, @NonNull TextView tvRotation) {
+      @NonNull MaterialButton btnMode, @NonNull FrameLayout layoutCameraContainer,
+      @NonNull LinearLayout layoutNetworkStatus, @NonNull TextureView textureCameraPreview,
+      @NonNull TextView tvNetworkStatus, @NonNull TextView tvRot, @NonNull View viewCameraOverlay,
+      @NonNull View viewStatusIndicator) {
     this.rootView = rootView;
     this.audioText = audioText;
     this.btnMode = btnMode;
-    this.cameraContainer = cameraContainer;
-    this.cameraOverlay = cameraOverlay;
+    this.layoutCameraContainer = layoutCameraContainer;
     this.layoutNetworkStatus = layoutNetworkStatus;
-    this.statusIndicator = statusIndicator;
-    this.textureViewCamera = textureViewCamera;
+    this.textureCameraPreview = textureCameraPreview;
     this.tvNetworkStatus = tvNetworkStatus;
-    this.tvRotation = tvRotation;
+    this.tvRot = tvRot;
+    this.viewCameraOverlay = viewCameraOverlay;
+    this.viewStatusIndicator = viewStatusIndicator;
   }
 
   @Override
@@ -101,57 +101,57 @@ public final class ActivityTestBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.btnMode;
+      id = R.id.btn_mode;
       MaterialButton btnMode = ViewBindings.findChildViewById(rootView, id);
       if (btnMode == null) {
         break missingId;
       }
 
-      id = R.id.cameraContainer;
-      FrameLayout cameraContainer = ViewBindings.findChildViewById(rootView, id);
-      if (cameraContainer == null) {
+      id = R.id.layout_camera_container;
+      FrameLayout layoutCameraContainer = ViewBindings.findChildViewById(rootView, id);
+      if (layoutCameraContainer == null) {
         break missingId;
       }
 
-      id = R.id.cameraOverlay;
-      View cameraOverlay = ViewBindings.findChildViewById(rootView, id);
-      if (cameraOverlay == null) {
-        break missingId;
-      }
-
-      id = R.id.layoutNetworkStatus;
+      id = R.id.layout_network_status;
       LinearLayout layoutNetworkStatus = ViewBindings.findChildViewById(rootView, id);
       if (layoutNetworkStatus == null) {
         break missingId;
       }
 
-      id = R.id.statusIndicator;
-      View statusIndicator = ViewBindings.findChildViewById(rootView, id);
-      if (statusIndicator == null) {
+      id = R.id.texture_camera_preview;
+      TextureView textureCameraPreview = ViewBindings.findChildViewById(rootView, id);
+      if (textureCameraPreview == null) {
         break missingId;
       }
 
-      id = R.id.textureViewCamera;
-      TextureView textureViewCamera = ViewBindings.findChildViewById(rootView, id);
-      if (textureViewCamera == null) {
-        break missingId;
-      }
-
-      id = R.id.tvNetworkStatus;
+      id = R.id.tv_network_status;
       TextView tvNetworkStatus = ViewBindings.findChildViewById(rootView, id);
       if (tvNetworkStatus == null) {
         break missingId;
       }
 
-      id = R.id.tvRotation;
-      TextView tvRotation = ViewBindings.findChildViewById(rootView, id);
-      if (tvRotation == null) {
+      id = R.id.tv_rot;
+      TextView tvRot = ViewBindings.findChildViewById(rootView, id);
+      if (tvRot == null) {
+        break missingId;
+      }
+
+      id = R.id.view_camera_overlay;
+      View viewCameraOverlay = ViewBindings.findChildViewById(rootView, id);
+      if (viewCameraOverlay == null) {
+        break missingId;
+      }
+
+      id = R.id.view_status_indicator;
+      View viewStatusIndicator = ViewBindings.findChildViewById(rootView, id);
+      if (viewStatusIndicator == null) {
         break missingId;
       }
 
       return new ActivityTestBinding((ConstraintLayout) rootView, audioText, btnMode,
-          cameraContainer, cameraOverlay, layoutNetworkStatus, statusIndicator, textureViewCamera,
-          tvNetworkStatus, tvRotation);
+          layoutCameraContainer, layoutNetworkStatus, textureCameraPreview, tvNetworkStatus, tvRot,
+          viewCameraOverlay, viewStatusIndicator);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

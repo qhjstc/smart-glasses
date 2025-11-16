@@ -64,4 +64,12 @@
         android:text="TEST"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btn_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="RECORD"
+        android:textAllCaps="false" />
+
 </LinearLayout>

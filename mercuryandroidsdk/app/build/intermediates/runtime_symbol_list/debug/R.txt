@@ -2825,7 +2825,6 @@ int id beginning 0x7f080054
 int id blocking 0x7f080055
 int id bottom 0x7f080056
 int id bounce 0x7f080057
-int id btnMode 0x7f0801f6
 int id btn_3 0x7f080058
 int id btn_4 0x7f080059
 int id btn_api 0x7f08005a
@@ -2838,16 +2837,16 @@ int id btn_fusion_fragment 0x7f080060
 int id btn_fusion_view 0x7f080061
 int id btn_fusion_vision 0x7f080062
 int id btn_imu 0x7f080063
+int id btn_mode 0x7f0801ff
 int id btn_ok 0x7f080064
 int id btn_pag 0x7f080065
 int id btn_player 0x7f080066
+int id btn_record 0x7f080207
 int id btn_recycle_view 0x7f080067
 int id btn_test 0x7f0801f3
 int id btn_toast 0x7f080068
 int id btn_vga 0x7f080069
 int id buttonPanel 0x7f08006a
-int id cameraContainer 0x7f0801fe
-int id cameraOverlay 0x7f0801fd
 int id camera_preview 0x7f08006b
 int id cancel_button 0x7f08006c
 int id capture_image_button 0x7f08006d
@@ -2966,8 +2965,9 @@ int id jumpToEnd 0x7f0800dd
 int id jumpToStart 0x7f0800de
 int id labeled 0x7f0800df
 int id layout 0x7f0800e0
-int id layoutNetworkStatus 0x7f0801f8
+int id layout_camera_container 0x7f080200
 int id layout_content 0x7f0800e1
+int id layout_network_status 0x7f080201
 int id left 0x7f0800e2
 int id leftToRight 0x7f0800e3
 int id line1 0x7f0800e4
@@ -3150,7 +3150,6 @@ int id startToEnd 0x7f080194
 int id startVertical 0x7f080195
 int id staticLayout 0x7f080196
 int id staticPostLayout 0x7f080197
-int id statusIndicator 0x7f0801f9
 int id stop 0x7f080198
 int id stretch 0x7f080199
 int id submenuarrow 0x7f08019a
@@ -3188,7 +3187,7 @@ int id textinput_placeholder 0x7f0801b9
 int id textinput_prefix_text 0x7f0801ba
 int id textinput_suffix_text 0x7f0801bb
 int id textureView 0x7f0801bc
-int id textureViewCamera 0x7f0801fc
+int id texture_camera_preview 0x7f080202
 int id thumbnail_view 0x7f0801bd
 int id time 0x7f0801be
 int id title 0x7f0801bf
@@ -3209,9 +3208,7 @@ int id triangle 0x7f0801cd
 int id tvAccelerometer 0x7f0801ce
 int id tvGyroscope 0x7f0801cf
 int id tvMagnetometer 0x7f0801d0
-int id tvNetworkStatus 0x7f0801fa
 int id tvPhoto 0x7f0801d1
-int id tvRotation 0x7f0801f4
 int id tv_ble 0x7f0801d2
 int id tv_ble_status 0x7f0801d3
 int id tv_content 0x7f0801d4
@@ -3220,7 +3217,9 @@ int id tv_devices 0x7f0801d6
 int id tv_devices_type 0x7f0801d7
 int id tv_location 0x7f0801d8
 int id tv_name 0x7f0801d9
+int id tv_network_status 0x7f080203
 int id tv_phone 0x7f0801da
+int id tv_rot 0x7f080204
 int id tv_title 0x7f0801db
 int id tv_title1 0x7f0801dc
 int id tv_title2 0x7f0801dd
@@ -3233,7 +3232,9 @@ int id uniform 0x7f0801e3
 int id unlabeled 0x7f0801e4
 int id up 0x7f0801e5
 int id useLogo 0x7f0801e6
+int id view_camera_overlay 0x7f080205
 int id view_offset_helper 0x7f0801e7
+int id view_status_indicator 0x7f080206
 int id view_tree_lifecycle_owner 0x7f0801e8
 int id view_tree_on_back_pressed_dispatcher_owner 0x7f0801e9
 int id view_tree_saved_state_registry_owner 0x7f0801ea
@@ -3360,6 +3361,7 @@ int layout activity_fusion_vision_home 0x7f0b0021
 int layout activity_imu 0x7f0b0022
 int layout activity_mirror_container_view 0x7f0b0023
 int layout activity_pag 0x7f0b0024
+int layout activity_record 0x7f0b0082
 int layout activity_recycler_home 0x7f0b0025
 int layout activity_test 0x7f0b0081
 int layout activity_tp_event 0x7f0b0026

@@ -79,6 +79,8 @@
 
         <activity android:name=".ui.activity.test.TestActivity" />
 
+        <activity android:name=".ui.activity.test.RecordActivity" />
+
     </application>
 
 </manifest>

@@ -1,23 +1,23 @@
 [
     {
-        "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\xml\\backup_rules.xml"
-    },
-    {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\drawable_indicator_circle_red.xml.flat",
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\drawable\\indicator_circle_red.xml"
+    },
+    {
+        "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\xml\\backup_rules.xml"
     },
     {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\anim_ani_activity_exit.xml.flat",
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\anim\\ani_activity_exit.xml"
     },
     {
-        "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\layout_layout_recyclerview_moved_focus.xml.flat",
-        "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\layout_recyclerview_moved_focus.xml"
-    },
-    {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\mipmap-hdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\layout_layout_recyclerview_moved_focus.xml.flat",
+        "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\layout_recyclerview_moved_focus.xml"
     },
     {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\xml_data_extraction_rules.xml.flat",
@@ -148,6 +148,10 @@
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\drawable-v24\\ic_launcher_foreground.xml"
     },
     {
+        "merged": "com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:/layout_activity_record.xml.flat",
+        "source": "com.ffalcon.mercury.android.sdk.demo.app-main-39:/layout/activity_record.xml"
+    },
+    {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\layout_activity_mirror_container_view.xml.flat",
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\activity_mirror_container_view.xml"
     },
@@ -178,10 +182,6 @@
     {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\layout_view_container_mirror.xml.flat",
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\view_container_mirror.xml"
-    },
-    {
-        "merged": "com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:/layout_activity_test.xml.flat",
-        "source": "com.ffalcon.mercury.android.sdk.demo.app-main-39:/layout/activity_test.xml"
     },
     {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\drawable_shape_device_selected.xml.flat",

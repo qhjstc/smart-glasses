@@ -33,7 +33,7 @@ import com.ffalcon.mercury.android.sdk.util.FLogger
 import kotlinx.coroutines.launch
 
 import com.ffalcon.mercury.android.sdk.demo.ui.activity.test.TestActivity
-
+import com.ffalcon.mercury.android.sdk.demo.ui.activity.test.RecordActivity
 
 class DemoHomeActivity : BaseMirrorActivity<LayoutDemoHomeBinding>() {
     private var fixPosFocusTracker: FixPosFocusTracker? = null
@@ -226,7 +226,30 @@ class DemoHomeActivity : BaseMirrorActivity<LayoutDemoHomeBinding>() {
                         }
                     }
                 ),
+                FocusInfo(
+                    btnRecord,
+                    eventHandler = { action ->
+                        when (action) {
+                            is TempleAction.Click -> {
+                                startActivity(
+                                    Intent(
+                                        this@DemoHomeActivity,
+                                        RecordActivity::class.java
+                                    )
+                                )
+                            }
+
+                            else -> Unit
+                        }
+                    },
+                    focusChangeHandler = { hasFocus ->
+                        mBindingPair.updateView {
+                            triggerFocus(hasFocus, btnRecord, mBindingPair.checkIsLeft(this))
+                        }
+                    }
+                ),
             )
+
             focusHolder.currentFocus(mBindingPair.left.btnFusionVision)
         }
         fixPosFocusTracker = FixPosFocusTracker(focusHolder).apply {

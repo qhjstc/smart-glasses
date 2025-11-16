@@ -301,23 +301,23 @@ class TestActivity : BaseMirrorActivity<ActivityTestBinding>(), SensorEventListe
         recorder = AudioRecorderModule()
 
         // ✅ 在后台线程中建立连接，防止主线程被阻塞
-        Thread {
-            wifiSender = WifiSender(serverIP, unifiedPort)
-            val ok = wifiSender.start()
-            runOnUiThread {
-                if (ok) {
-                    updateNetworkStatusUI(true)
-                    audioSink = WifiAudioSender(wifiSender)
-                    unifiedSocket = wifiSender.socketRef
-                    unifiedIn = wifiSender.socketRef?.getInputStream()
-                    if (currentMode == Mode.TRANSLATION) startRecordingIfNeeded()
-                    unifiedIn?.let { startUnifiedReceiver(it) }
-                } else {
-                    updateNetworkStatusUI(false)
-                    Log.e("Network", "TCP connect failed")
-                }
-            }
-        }.start()
+//        Thread {
+//            wifiSender = WifiSender(serverIP, unifiedPort)
+//            val ok = wifiSender.start()
+//            runOnUiThread {
+//                if (ok) {
+//                    updateNetworkStatusUI(true)
+//                    audioSink = WifiAudioSender(wifiSender)
+//                    unifiedSocket = wifiSender.socketRef
+//                    unifiedIn = wifiSender.socketRef?.getInputStream()
+//                    if (currentMode == Mode.TRANSLATION) startRecordingIfNeeded()
+//                    unifiedIn?.let { startUnifiedReceiver(it) }
+//                } else {
+//                    updateNetworkStatusUI(false)
+//                    Log.e("Network", "TCP connect failed")
+//                }
+//            }
+//        }.start()
     }
 
     private fun updateNetworkStatusUI(isConnected: Boolean) {

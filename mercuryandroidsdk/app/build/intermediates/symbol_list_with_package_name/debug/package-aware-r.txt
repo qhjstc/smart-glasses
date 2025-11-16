@@ -2826,7 +2826,6 @@ id beginning
 id blocking
 id bottom
 id bounce
-id btnMode
 id btn_3
 id btn_4
 id btn_api
@@ -2839,16 +2838,16 @@ id btn_fusion_fragment
 id btn_fusion_view
 id btn_fusion_vision
 id btn_imu
+id btn_mode
 id btn_ok
 id btn_pag
 id btn_player
+id btn_record
 id btn_recycle_view
 id btn_test
 id btn_toast
 id btn_vga
 id buttonPanel
-id cameraContainer
-id cameraOverlay
 id camera_preview
 id cancel_button
 id capture_image_button
@@ -2967,8 +2966,9 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id layout
-id layoutNetworkStatus
+id layout_camera_container
 id layout_content
+id layout_network_status
 id left
 id leftToRight
 id line1
@@ -3151,7 +3151,6 @@ id startToEnd
 id startVertical
 id staticLayout
 id staticPostLayout
-id statusIndicator
 id stop
 id stretch
 id submenuarrow
@@ -3189,7 +3188,7 @@ id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
 id textureView
-id textureViewCamera
+id texture_camera_preview
 id thumbnail_view
 id time
 id title
@@ -3210,9 +3209,7 @@ id triangle
 id tvAccelerometer
 id tvGyroscope
 id tvMagnetometer
-id tvNetworkStatus
 id tvPhoto
-id tvRotation
 id tv_ble
 id tv_ble_status
 id tv_content
@@ -3221,7 +3218,9 @@ id tv_devices
 id tv_devices_type
 id tv_location
 id tv_name
+id tv_network_status
 id tv_phone
+id tv_rot
 id tv_title
 id tv_title1
 id tv_title2
@@ -3234,7 +3233,9 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id view_camera_overlay
 id view_offset_helper
+id view_status_indicator
 id view_tree_lifecycle_owner
 id view_tree_on_back_pressed_dispatcher_owner
 id view_tree_saved_state_registry_owner
@@ -3361,6 +3362,7 @@ layout activity_fusion_vision_home
 layout activity_imu
 layout activity_mirror_container_view
 layout activity_pag
+layout activity_record
 layout activity_recycler_home
 layout activity_test
 layout activity_tp_event
