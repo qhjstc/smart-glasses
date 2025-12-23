@@ -1,7 +1,6 @@
 package com.ffalcon.mercury.android.sdk.demo.ui.activity.test
 
 import android.Manifest
-import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.drawable.GradientDrawable
 import android.media.AudioFormat
@@ -14,13 +13,17 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.ffalcon.mercury.android.sdk.demo.databinding.ActivityRecordBinding
-import com.ffalcon.mercury.android.sdk.demo.ui.activity.test.audio.AudioRecorderModule
+import com.ffalcon.mercury.android.sdk.demo.ui.activity.test.audio.AudioModule
 import com.ffalcon.mercury.android.sdk.demo.ui.activity.test.audio.WifiAudioSender
 import com.ffalcon.mercury.android.sdk.demo.ui.activity.test.camera.CameraModule
+import com.ffalcon.mercury.android.sdk.demo.ui.activity.test.camera.WifiCameraSender
 import com.ffalcon.mercury.android.sdk.demo.ui.activity.test.imu.ImuModule
+import com.ffalcon.mercury.android.sdk.demo.ui.activity.test.imu.WifiImuSender
 import com.ffalcon.mercury.android.sdk.touch.TempleAction
 import com.ffalcon.mercury.android.sdk.ui.activity.BaseMirrorActivity
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
 class RecordActivity : BaseMirrorActivity<ActivityRecordBinding>() {
@@ -28,10 +31,13 @@ class RecordActivity : BaseMirrorActivity<ActivityRecordBinding>() {
     //------------------------------ Modules ------------------------------//
     private lateinit var imuModule: ImuModule
     private lateinit var cameraModule: CameraModule
-    private lateinit var recorder: AudioRecorderModule
-    private lateinit var audioSink: WifiAudioSender
+    private lateinit var recorder: AudioModule
 
     //------------------------------ Network ------------------------------//
+    private lateinit var audioSink: WifiAudioSender
+     private lateinit var videoSink: WifiCameraSender
+     private lateinit var imuSink: WifiImuSender
+
     private lateinit var audioSender: WifiSender
     private lateinit var videoSender: WifiSender
     private lateinit var imuSender: WifiSender
@@ -45,6 +51,10 @@ class RecordActivity : BaseMirrorActivity<ActivityRecordBinding>() {
     private var isNetworkReady = false
     private val PERMISSION_REQUEST_CODE = 1001
 
+    // 采集/推流状态（避免重复 start/stop）
+    private var isStreaming = false
+    private var networkLoopJob: Job? = null
+
     //------------------------------ 模式 ------------------------------//
     enum class Mode(val displayName: String) {
         DEFAULT("DEFAULT"), RECORD("RECORD"), STORE("STORE");
@@ -56,23 +66,25 @@ class RecordActivity : BaseMirrorActivity<ActivityRecordBinding>() {
     //========================= 生命周期 =========================//
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ensureAllPermissions()
         initModules()
         initUIEvents()
+        ensureAllPermissions()
     }
 
     override fun onPause() {
         super.onPause()
-        imuModule.stop()
-        cameraModule.stop()
-        stopAudio()
+        stopStreaming()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        imuModule.stop()
-        cameraModule.stop()
-        stopAudio()
+        stopStreaming()
+        networkLoopJob?.cancel()
+
+        // 模块级资源再兜底
+        stopIMU()
+        stopCamera()
+
         if (::audioSender.isInitialized) audioSender.close()
         if (::videoSender.isInitialized) videoSender.close()
         if (::imuSender.isInitialized) imuSender.close()
@@ -96,9 +108,11 @@ class RecordActivity : BaseMirrorActivity<ActivityRecordBinding>() {
 
     override fun onRequestPermissionsResult(req: Int, permissions: Array<out String>, results: IntArray) {
         super.onRequestPermissionsResult(req, permissions, results)
-        if (req == PERMISSION_REQUEST_CODE && results.all { it == PackageManager.PERMISSION_GRANTED })
+        if (req == PERMISSION_REQUEST_CODE && results.all { it == PackageManager.PERMISSION_GRANTED }) {
             initNetwork()
-        else Toast.makeText(this, "❌ 权限被拒绝", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(this, "❌ 权限被拒绝", Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun initModules() {
@@ -112,27 +126,27 @@ class RecordActivity : BaseMirrorActivity<ActivityRecordBinding>() {
         videoSender = WifiSender(serverIP, portVideo).apply { start() }
         imuSender = WifiSender(serverIP, portIMU).apply { start() }
 
-        lifecycleScope.launch {
-            while (true) {
+        // IMU 先启动采集（但是否发送由模式/网络控制）
+        initIMU()
+
+        networkLoopJob?.cancel()
+        networkLoopJob = lifecycleScope.launch {
+            while (isActive) {
                 delay(1000)
+
                 val ready = audioSender.isConnected() && videoSender.isConnected() && imuSender.isConnected()
                 runOnUiThread { updateNetworkStatusUI(ready) }
 
                 if (ready && !isNetworkReady) {
                     isNetworkReady = true
                     Log.i("RecordActivity", "🌐 网络恢复")
-                    lifecycleScope.launch {
-                        delay(500)
-                        initAudio()
-                        cameraModule.init(videoSender)
-                        cameraModule.start()
-                    }
+                    startStreamingIfPossible()
                 } else if (!ready && isNetworkReady) {
                     isNetworkReady = false
                     Log.w("RecordActivity", "⚠️ 网络断开，停止音视频与IMU")
-                    cameraModule.stop()
-                    stopAudio()
-                    imuModule.stop()
+                    stopStreaming()
+                } else {
+                    startStreamingIfPossible()
                 }
             }
         }
@@ -150,11 +164,56 @@ class RecordActivity : BaseMirrorActivity<ActivityRecordBinding>() {
         }
     }
 
+    //========================= 采集/推流控制（只在 RECORD） =========================//
+    private fun updateImuSendByMode() {
+        val enable = (currentMode == Mode.RECORD) && isNetworkReady
+        imuModule.setWifiSendEnabled(enable)
+    }
+
+    private fun startStreamingIfPossible() {
+        if (isStreaming) return
+        if (!isNetworkReady) return
+        if (currentMode != Mode.RECORD) return
+
+        // Audio
+        initAudio()
+
+        // Video
+        initCamera()
+
+        // IMU
+        updateImuSendByMode()
+
+        isStreaming = true
+        Log.i("RecordActivity", "▶️ startStreaming (mode=RECORD)")
+    }
+
+    private fun stopStreaming() {
+        if (!isStreaming) {
+            // 防御式 stop
+            stopCamera()
+            stopAudio()
+            // IMU 采集可以继续（你也可以选择停），但发送一定要关掉
+            updateImuSendByMode()
+            return
+        }
+
+        stopCamera()
+        stopAudio()
+
+        // 退出 RECORD 或网络断开时，立刻停发 IMU
+        updateImuSendByMode()
+
+        isStreaming = false
+        Log.i("RecordActivity", "⏹ stopStreaming")
+    }
+
     //========================= 音频 =========================//
     private fun initAudio() {
         if (!audioSender.isConnected()) return
         if (this::recorder.isInitialized) stopAudio()
-        recorder = AudioRecorderModule()
+
+        recorder = AudioModule()
         audioSink = WifiAudioSender(audioSender)
         recorder.start(
             context = this,
@@ -163,15 +222,58 @@ class RecordActivity : BaseMirrorActivity<ActivityRecordBinding>() {
             audioFormat = AudioFormat.ENCODING_PCM_16BIT,
             bufferSizeInBytes = 2048,
             sink = audioSink,
-            voiceDetectionMode = AudioRecorderModule.VoiceDetectionMode.DISABLED
+            voiceDetectionMode = AudioModule.VoiceDetectionMode.DISABLED
         )
         Log.i("RecordActivity", "🎙️ 录音启动")
     }
 
     private fun stopAudio() {
         try {
-            recorder.stop()
+            if (this::recorder.isInitialized) recorder.stop()
             Log.i("RecordActivity", "🔇 录音停止")
+        } catch (_: Exception) {}
+    }
+
+    //========================= IMU =========================//
+    private fun initIMU() {
+        try {
+            // 采集启动（是否发送由 setWifiSendEnabled 控制）
+            imuSink = WifiImuSender(imuSender)
+            imuModule.start(imuSink)
+            imuModule.setWifiSendEnabled(false) // 默认不发，等 RECORD + 网络就绪再打开
+            Log.i("RecordActivity", "🧭 IMU 启动(采集), 默认不发送")
+        } catch (e: Exception) {
+            Log.e("RecordActivity", "IMU init failed", e)
+        }
+    }
+
+    private fun stopIMU() {
+        try {
+            imuModule.setWifiSendEnabled(false)
+        } catch (_: Exception) {}
+
+        try {
+            imuModule.stop()
+            Log.i("RecordActivity", "🛑 IMU 停止")
+        } catch (_: Exception) {}
+    }
+
+    //========================= Camera =========================//
+    private fun initCamera() {
+        try {
+            videoSink = WifiCameraSender(videoSender)
+            cameraModule.init()
+            cameraModule.start(videoSink)
+            Log.i("RecordActivity", "📷 Camera 启动")
+        } catch (e: Exception) {
+            Log.e("RecordActivity", "Camera init/start failed", e)
+        }
+    }
+
+    private fun stopCamera() {
+        try {
+            cameraModule.stop()
+            Log.i("RecordActivity", "🛑 Camera 停止")
         } catch (_: Exception) {}
     }
 
@@ -193,6 +295,9 @@ class RecordActivity : BaseMirrorActivity<ActivityRecordBinding>() {
 
     private fun switchMode(mode: Mode) {
         currentMode = mode
+        mBindingPair.updateView { btnMode.text = mode.displayName }
         Toast.makeText(this, "切换模式: ${mode.displayName}", Toast.LENGTH_SHORT).show()
+
+        if (currentMode == Mode.RECORD) startStreamingIfPossible() else stopStreaming()
     }
 }

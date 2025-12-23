@@ -67,8 +67,10 @@
         <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.api.APIHomeActivity" />
         <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.api.IMUActivity" />
         <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.camera.CameraHomeActivity" />
-        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.test.TestActivity" />
+        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.test.DevHomeActivity" />
+        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.test.AgentActivity" />
         <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.test.RecordActivity" />
+        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.test.PAgentActivity" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

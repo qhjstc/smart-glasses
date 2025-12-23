@@ -7,6 +7,7 @@ import java.net.Socket
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import java.util.concurrent.Executors
+import java.io.InputStream
 
 class WifiSender(
     private val host: String,
@@ -22,18 +23,24 @@ class WifiSender(
     @Volatile private var connected = false
 
     private val executor = Executors.newSingleThreadExecutor()
+    private var connectThread: Thread? = null
+
+    val socketRef: Socket?
+        get() = socket
+
+    val inputStreamRef: InputStream?
+        get() = socket?.getInputStream()
 
     fun start() {
         if (running) return
         running = true
 
-        // 🌐 在独立线程中进行连接循环
-        executor.execute {
+        connectThread = Thread {
             while (running) {
                 if (!connected) {
                     try {
                         val sock = Socket()
-                        sock.connect(InetSocketAddress(host, port), 2000) // 2秒超时
+                        sock.connect(InetSocketAddress(host, port), 2000)
                         socket = sock
                         outputStream = sock.getOutputStream()
                         connected = true
@@ -41,16 +48,14 @@ class WifiSender(
                     } catch (e: Exception) {
                         connected = false
                         Log.w(TAG, "⚠️ Connect failed: ${e.message}")
-                        Thread.sleep(3000) // 3秒后重试
+                        Thread.sleep(3000)
                     }
                 } else {
-                    // 连接保持时，可在此检测连接心跳或执行轻任务
                     Thread.sleep(1000)
                 }
             }
-
             closeInternal()
-        }
+        }.apply { name = "WifiSender-Connect-$port"; start() }
     }
 
     fun isConnected() = connected

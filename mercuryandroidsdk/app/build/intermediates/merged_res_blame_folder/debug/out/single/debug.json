@@ -24,6 +24,10 @@
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\xml\\data_extraction_rules.xml"
     },
     {
+        "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\layout_activity_pagent.xml.flat",
+        "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\activity_pagent.xml"
+    },
+    {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\layout_activity_pag.xml.flat",
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\activity_pag.xml"
     },
@@ -70,6 +74,10 @@
     {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\layout_activity_api.xml.flat",
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\activity_api.xml"
+    },
+    {
+        "merged": "com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:/layout_activity_pagent.xml.flat",
+        "source": "com.ffalcon.mercury.android.sdk.demo.app-main-39:/layout/activity_pagent.xml"
     },
     {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\drawable_shape_phone_top_tip.xml.flat",
@@ -120,6 +128,10 @@
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\layout_activity_agent.xml.flat",
+        "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\activity_agent.xml"
+    },
+    {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\layout_item_telephone_favorite_moved.xml.flat",
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\item_telephone_favorite_moved.xml"
     },
@@ -148,8 +160,8 @@
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\drawable-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:/layout_activity_record.xml.flat",
-        "source": "com.ffalcon.mercury.android.sdk.demo.app-main-39:/layout/activity_record.xml"
+        "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\layout_activity_dev_home.xml.flat",
+        "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\activity_dev_home.xml"
     },
     {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\layout_activity_mirror_container_view.xml.flat",
@@ -166,6 +178,10 @@
     {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\layout_layout_dialog.xml.flat",
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\layout_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\layout_activity_record.xml.flat",
+        "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\activity_record.xml"
     },
     {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-merged_res-37:\\mipmap-xxxhdpi_ic_launcher.webp.flat",

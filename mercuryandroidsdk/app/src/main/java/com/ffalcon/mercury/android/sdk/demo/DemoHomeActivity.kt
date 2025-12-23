@@ -3,8 +3,6 @@ package com.ffalcon.mercury.android.sdk.demo
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.hardware.Sensor
-import android.hardware.SensorManager
 import android.os.Bundle
 import android.view.View
 import androidx.core.app.ActivityCompat
@@ -14,10 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.ffalcon.mercury.android.sdk.core.make3DEffectForSide
 import com.ffalcon.mercury.android.sdk.demo.databinding.LayoutDemoHomeBinding
-import com.ffalcon.mercury.android.sdk.demo.ui.activity.DialogActivity
-import com.ffalcon.mercury.android.sdk.demo.ui.activity.api.APIActivity
 import com.ffalcon.mercury.android.sdk.demo.ui.activity.api.APIHomeActivity
-import com.ffalcon.mercury.android.sdk.demo.ui.activity.camera.CameraActivity
 import com.ffalcon.mercury.android.sdk.demo.ui.activity.camera.CameraHomeActivity
 import com.ffalcon.mercury.android.sdk.demo.ui.activity.fusion.FusionVisionHomeActivity
 import com.ffalcon.mercury.android.sdk.demo.ui.activity.player.VideoPlayActivity
@@ -32,8 +27,7 @@ import com.ffalcon.mercury.android.sdk.ui.util.FocusInfo
 import com.ffalcon.mercury.android.sdk.util.FLogger
 import kotlinx.coroutines.launch
 
-import com.ffalcon.mercury.android.sdk.demo.ui.activity.test.TestActivity
-import com.ffalcon.mercury.android.sdk.demo.ui.activity.test.RecordActivity
+import com.ffalcon.mercury.android.sdk.demo.ui.activity.test.DevHomeActivity
 
 class DemoHomeActivity : BaseMirrorActivity<LayoutDemoHomeBinding>() {
     private var fixPosFocusTracker: FixPosFocusTracker? = null
@@ -205,14 +199,14 @@ class DemoHomeActivity : BaseMirrorActivity<LayoutDemoHomeBinding>() {
                 ),
 
                 FocusInfo(
-                    btnTest,
+                    btnDev,
                     eventHandler = { action ->
                         when (action) {
                             is TempleAction.Click -> {
                                 startActivity(
                                     Intent(
                                         this@DemoHomeActivity,
-                                        TestActivity::class.java
+                                        DevHomeActivity::class.java
                                     )
                                 )
                             }
@@ -222,32 +216,11 @@ class DemoHomeActivity : BaseMirrorActivity<LayoutDemoHomeBinding>() {
                     },
                     focusChangeHandler = { hasFocus ->
                         mBindingPair.updateView {
-                            triggerFocus(hasFocus, btnTest, mBindingPair.checkIsLeft(this))
+                            triggerFocus(hasFocus, btnDev, mBindingPair.checkIsLeft(this))
                         }
                     }
                 ),
-                FocusInfo(
-                    btnRecord,
-                    eventHandler = { action ->
-                        when (action) {
-                            is TempleAction.Click -> {
-                                startActivity(
-                                    Intent(
-                                        this@DemoHomeActivity,
-                                        RecordActivity::class.java
-                                    )
-                                )
-                            }
 
-                            else -> Unit
-                        }
-                    },
-                    focusChangeHandler = { hasFocus ->
-                        mBindingPair.updateView {
-                            triggerFocus(hasFocus, btnRecord, mBindingPair.checkIsLeft(this))
-                        }
-                    }
-                ),
             )
 
             focusHolder.currentFocus(mBindingPair.left.btnFusionVision)

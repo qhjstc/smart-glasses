@@ -28,7 +28,6 @@ class WifiAudioSender(private val wifiSender: WifiSender) : AudioDataSender {
                 put("type", "ASR_END")
             }
             wifiSender.sendJson(json.toString())
-            Log.i(TAG, "📨 已发送 ASR_END 控制包")
         } catch (e: Exception) {
             Log.e(TAG, "sendAsrEnd error", e)
         }

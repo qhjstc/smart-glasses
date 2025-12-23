@@ -24,7 +24,7 @@
 14-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:10:22-68
 15
 16    <application
-16-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:12:5-84:19
+16-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:12:5-88:19
 17        android:name="com.ffalcon.mercury.android.sdk.demo.MercuryDemoApplication"
 17-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:13:9-47
 18        android:allowBackup="true"
@@ -140,64 +140,70 @@
 69        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.camera.CameraHomeActivity" />
 69-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:78:9-75
 69-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:78:19-72
-70        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.test.TestActivity" />
-70-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:80:9-67
-70-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:80:19-64
-71        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.test.RecordActivity" />
-71-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:82:9-69
-71-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:82:19-66
-72
-73        <provider
-73-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-74            android:name="androidx.startup.InitializationProvider"
-74-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-75            android:authorities="com.ffalcon.mercury.android.sdk.androidx-startup"
-75-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-76            android:exported="false" >
-76-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-77            <meta-data
-77-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-78                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-78-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-79                android:value="androidx.startup" />
-79-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
-80            <meta-data
-80-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\qhjhhh\.gradle\caches\transforms-3\f2a22985807e1f187a5a6aa8656c7887\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
-81                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-81-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\qhjhhh\.gradle\caches\transforms-3\f2a22985807e1f187a5a6aa8656c7887\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
-82                android:value="androidx.startup" />
-82-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\qhjhhh\.gradle\caches\transforms-3\f2a22985807e1f187a5a6aa8656c7887\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
-83        </provider>
-84
-85        <service
-85-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:29:9-35:19
-86            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-86-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:30:13-103
-87            android:exported="false" >
-87-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:31:13-37
-88            <meta-data
-88-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:32:13-34:39
-89                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-89-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:33:17-94
-90                android:value="cct" />
-90-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:34:17-36
-91        </service>
-92        <service
-92-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:26:9-30:19
-93            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-93-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:27:13-117
-94            android:exported="false"
-94-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:28:13-37
-95            android:permission="android.permission.BIND_JOB_SERVICE" >
-95-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:29:13-69
-96        </service>
-97
-98        <receiver
-98-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:32:9-34:40
-99            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-99-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:33:13-132
-100            android:exported="false" />
-100-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:34:13-37
-101    </application>
-102
-103</manifest>
+70        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.test.DevHomeActivity" />
+70-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:80:9-70
+70-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:80:19-67
+71        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.test.AgentActivity" />
+71-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:82:9-68
+71-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:82:19-65
+72        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.test.RecordActivity" />
+72-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:84:9-69
+72-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:84:19-66
+73        <activity android:name="com.ffalcon.mercury.android.sdk.demo.ui.activity.test.PAgentActivity" />
+73-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:86:9-69
+73-->D:\cityu\glasses\mercuryandroidsdk\app\src\main\AndroidManifest.xml:86:19-66
+74
+75        <provider
+75-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+76            android:name="androidx.startup.InitializationProvider"
+76-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+77            android:authorities="com.ffalcon.mercury.android.sdk.androidx-startup"
+77-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+78            android:exported="false" >
+78-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+79            <meta-data
+79-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+80                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+80-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+81                android:value="androidx.startup" />
+81-->[androidx.emoji2:emoji2:1.2.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\dbf8cee8a2686805eec357350d5b1605\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+82            <meta-data
+82-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\qhjhhh\.gradle\caches\transforms-3\f2a22985807e1f187a5a6aa8656c7887\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+83                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+83-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\qhjhhh\.gradle\caches\transforms-3\f2a22985807e1f187a5a6aa8656c7887\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+84                android:value="androidx.startup" />
+84-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\qhjhhh\.gradle\caches\transforms-3\f2a22985807e1f187a5a6aa8656c7887\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+85        </provider>
+86
+87        <service
+87-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:29:9-35:19
+88            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+88-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:30:13-103
+89            android:exported="false" >
+89-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:31:13-37
+90            <meta-data
+90-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:32:13-34:39
+91                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+91-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:33:17-94
+92                android:value="cct" />
+92-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\7efa23e0ef44e44ecd19d59666e4148e\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:34:17-36
+93        </service>
+94        <service
+94-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:26:9-30:19
+95            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+95-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:27:13-117
+96            android:exported="false"
+96-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:28:13-37
+97            android:permission="android.permission.BIND_JOB_SERVICE" >
+97-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:29:13-69
+98        </service>
+99
+100        <receiver
+100-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:32:9-34:40
+101            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+101-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:33:13-132
+102            android:exported="false" />
+102-->[com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\qhjhhh\.gradle\caches\transforms-3\f90dd237e930016c8e075b402b356a4b\transformed\transport-runtime-3.1.0\AndroidManifest.xml:34:13-37
+103    </application>
+104
+105</manifest>

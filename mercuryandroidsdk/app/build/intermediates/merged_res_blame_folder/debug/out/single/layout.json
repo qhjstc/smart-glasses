@@ -12,6 +12,10 @@
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\activity_fusion_act.xml"
     },
     {
+        "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-mergeDebugResources-36:\\layout\\activity_record.xml",
+        "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\activity_record.xml"
+    },
+    {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-mergeDebugResources-36:\\layout\\activity_camera.xml",
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\activity_camera.xml"
     },
@@ -26,6 +30,10 @@
     {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-mergeDebugResources-36:\\layout\\activity_recycler_home.xml",
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\activity_recycler_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-mergeDebugResources-36:\\layout\\activity_agent.xml",
+        "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\activity_agent.xml"
     },
     {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-mergeDebugResources-36:\\layout\\activity_tp_event.xml",
@@ -52,6 +60,10 @@
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\activity_fusion_vision_home.xml"
     },
     {
+        "merged": "com.ffalcon.mercury.android.sdk.demo.app-mergeDebugResources-36:/layout/activity_pagent.xml",
+        "source": "com.ffalcon.mercury.android.sdk.demo.app-main-39:/layout/activity_pagent.xml"
+    },
+    {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-mergeDebugResources-36:\\layout\\layout_dialog.xml",
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\layout_dialog.xml"
     },
@@ -64,8 +76,8 @@
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\item_telephone_favorite_moved.xml"
     },
     {
-        "merged": "com.ffalcon.mercury.android.sdk.demo.app-mergeDebugResources-36:/layout/activity_record.xml",
-        "source": "com.ffalcon.mercury.android.sdk.demo.app-main-39:/layout/activity_record.xml"
+        "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-mergeDebugResources-36:\\layout\\activity_dev_home.xml",
+        "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\activity_dev_home.xml"
     },
     {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-mergeDebugResources-36:\\layout\\activity_imu.xml",
@@ -90,6 +102,10 @@
     {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-mergeDebugResources-36:\\layout\\activity_api.xml",
         "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\activity_api.xml"
+    },
+    {
+        "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-mergeDebugResources-36:\\layout\\activity_pagent.xml",
+        "source": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-main-39:\\layout\\activity_pagent.xml"
     },
     {
         "merged": "C:\\Users\\qhjhhh\\.gradle\\daemon\\7.6\\com.ffalcon.mercury.android.sdk.demo.app-mergeDebugResources-36:\\layout\\dialog_test.xml",

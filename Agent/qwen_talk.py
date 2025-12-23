@@ -15,7 +15,7 @@ from dashscope.audio.asr import TranslationRecognizerRealtime, TranslationRecogn
 # ====================================================
 dashscope.api_key = 'sk-e05e5076e72e493998428e2d770e7a11'
 
-MODE = 1  # 0 = TCP服务器模式；1 = 本地麦克风输入模式
+MODE = 0  # 0 = TCP服务器模式；1 = 本地麦克风输入模式
 LOCAL_MODE_TYPE = "TALKING"  # 当 MODE=1 时使用，可为 "TALKING" 或 "TRANSLATION"
 
 HOST = "0.0.0.0"

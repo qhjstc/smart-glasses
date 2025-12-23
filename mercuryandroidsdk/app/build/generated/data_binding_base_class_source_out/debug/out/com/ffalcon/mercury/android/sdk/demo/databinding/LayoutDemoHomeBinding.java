@@ -26,6 +26,9 @@ public final class LayoutDemoHomeBinding implements ViewBinding {
   public final Button btnCamera;
 
   @NonNull
+  public final Button btnDev;
+
+  @NonNull
   public final Button btnEvent;
 
   @NonNull
@@ -35,27 +38,19 @@ public final class LayoutDemoHomeBinding implements ViewBinding {
   public final Button btnPlayer;
 
   @NonNull
-  public final Button btnRecord;
-
-  @NonNull
   public final Button btnRecycleView;
 
-  @NonNull
-  public final Button btnTest;
-
   private LayoutDemoHomeBinding(@NonNull LinearLayout rootView, @NonNull Button btnApi,
-      @NonNull Button btnCamera, @NonNull Button btnEvent, @NonNull Button btnFusionVision,
-      @NonNull Button btnPlayer, @NonNull Button btnRecord, @NonNull Button btnRecycleView,
-      @NonNull Button btnTest) {
+      @NonNull Button btnCamera, @NonNull Button btnDev, @NonNull Button btnEvent,
+      @NonNull Button btnFusionVision, @NonNull Button btnPlayer, @NonNull Button btnRecycleView) {
     this.rootView = rootView;
     this.btnApi = btnApi;
     this.btnCamera = btnCamera;
+    this.btnDev = btnDev;
     this.btnEvent = btnEvent;
     this.btnFusionVision = btnFusionVision;
     this.btnPlayer = btnPlayer;
-    this.btnRecord = btnRecord;
     this.btnRecycleView = btnRecycleView;
-    this.btnTest = btnTest;
   }
 
   @Override
@@ -97,6 +92,12 @@ public final class LayoutDemoHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btn_dev;
+      Button btnDev = ViewBindings.findChildViewById(rootView, id);
+      if (btnDev == null) {
+        break missingId;
+      }
+
       id = R.id.btn_event;
       Button btnEvent = ViewBindings.findChildViewById(rootView, id);
       if (btnEvent == null) {
@@ -115,26 +116,14 @@ public final class LayoutDemoHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.btn_record;
-      Button btnRecord = ViewBindings.findChildViewById(rootView, id);
-      if (btnRecord == null) {
-        break missingId;
-      }
-
       id = R.id.btn_recycle_view;
       Button btnRecycleView = ViewBindings.findChildViewById(rootView, id);
       if (btnRecycleView == null) {
         break missingId;
       }
 
-      id = R.id.btn_test;
-      Button btnTest = ViewBindings.findChildViewById(rootView, id);
-      if (btnTest == null) {
-        break missingId;
-      }
-
-      return new LayoutDemoHomeBinding((LinearLayout) rootView, btnApi, btnCamera, btnEvent,
-          btnFusionVision, btnPlayer, btnRecord, btnRecycleView, btnTest);
+      return new LayoutDemoHomeBinding((LinearLayout) rootView, btnApi, btnCamera, btnDev, btnEvent,
+          btnFusionVision, btnPlayer, btnRecycleView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

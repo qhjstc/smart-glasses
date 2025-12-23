@@ -77,9 +77,13 @@
 
         <activity android:name=".ui.activity.camera.CameraHomeActivity" />
 
-        <activity android:name=".ui.activity.test.TestActivity" />
+        <activity android:name=".ui.activity.test.DevHomeActivity" />
+
+        <activity android:name=".ui.activity.test.AgentActivity" />
 
         <activity android:name=".ui.activity.test.RecordActivity" />
+
+        <activity android:name=".ui.activity.test.PAgentActivity" />
 
     </application>
 
