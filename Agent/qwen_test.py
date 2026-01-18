@@ -48,3 +48,8 @@ while True:
         print(f"错误: HTTP {response.status_code}, 错误码: {response.code}, 信息: {response.message}")
         print("请参考文档: https://help.aliyun.com/zh/model-studio/developer-reference/error-code")
         print("-" * 50)
+
+
+
+
+        
